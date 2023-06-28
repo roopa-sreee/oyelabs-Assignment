@@ -1,0 +1,20 @@
+6. Imagine you have array of integer from 1 to 100 , the numbers are randomly ordered
+, one number from 1 to 100 is missing , Please write the code for finding the missing
+number
+
+
+let givenArray = [1,5,8,64,54,55,4];
+
+var arrayOfHundredNumbers =[];
+for (let i= 1; i<=100; i++) {
+    arrayOfHundredNumbers.push(i);
+}
+console.log(arrayOfHundredNumbers);
+    
+let missingNumbers=[]
+for (let each of arrayOfHundredNumbers ) {
+    if  (givenArray.indexOf(each)=== -1){
+        missingNumbers.push(each);
+    }
+}
+console.log(missingNumbers);

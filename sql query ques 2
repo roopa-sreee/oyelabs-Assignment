@@ -1,0 +1,10 @@
+
+// QUERYING FOR SUBJECTS FOR EACH STUDENT..//
+
+
+SELECT students.id,students.name,subject_name as subjects 
+FROM students INNER JOIN subject_students ON students.id = subject_students.customerId 
+        INNER JOIN subjects ON subject_students.subjectId = subjects.id 
+ORDER BY students.id ,subject_name;
+
+

@@ -1,0 +1,63 @@
+QUESTION NO # 3 :
+
+Write a function in node that inserts the following data in mysql , the email should
+be unique and if the email already exists in the system then the name of the customer
+will be updated with the new name that is there in the array for that customer.
+
+
+ANSWER :
+
+// function to insert values //
+
+const addDetailsQuery = (object,table_name) => {
+    const {email,name} = object;
+    const doesEmailExists = `
+    SELECT * FROM table_name WHERE email = ${email}`
+    const response = await db.get('doesEmailExists);
+    if (response === undefined){
+        INSERT INTO ${table_name}(name,email) VALUES(object.name,object.email);
+    }
+    else {
+        UPDATE table_name
+        SET name = ${name}
+        WHERE email = ${email};
+    }    
+}
+
+details = [
+{
+email : "anurag11@yopmail.com" ,
+name : "anurag"
+},
+{
+email : "sameer11@yopmail.com" ,
+name : "sameer"
+},
+{
+email : "ravi11@yopmail.com" ,
+name : "ravi"
+},
+{
+email : "akash11@yopmail.com" ,
+name : "akash"
+},
+{
+email : "anjali11@yopmail.com" ,
+name : "anjai"
+},
+{
+email : "santosh11@yopmail.com" ,
+name : "santosh"
+},
+]
+
+const table_name = 'user-details'
+db.query = details.map(eachObject => (addDetailsQuery (eachObject,table_name)));
+
+
+    or 
+
+db.query = `
+INSERT INTO table-name (customerId,name,email) VALUES (),
+[details.map(eachObject => {eachObject.customerId,eachObject.name,eachObject.email})]
+`
